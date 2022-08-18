@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="e5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <main>
+        <input placeholder="Ingrese la palabra a cifrar"/ class="texto">
+        <input type="text" id="encr"  class="text">
+
+        <p></p>
+        <button>Encriptar</button>
+        <button onclick="desencrypt" id="b1">Desencriptar</button>
+        
+        <button onclick="myFunction()">Copy text</button>
+        <p></p>
+        
+        
+
+    </main>
+</body>
+</html>
+
+
+
+
+<script>
+var input = document.querySelector("input");
+
+	input.focus();
+    
+
+ 
+
+
+function encript(){
+  
+    var txt=input.value
+var txte=txt.split('');
+
+    for(k=0;k < txt.length;k++){
+        console.log(k.value)
+
+       if(txte[k]=="a"){
+        txte[k]="ai"
+}
+        if(txte[k]=="e"){
+        txte[k]="enter"
+ }
+        if(txte[k]=="i"){
+        txte[k]="imes"
+}
+        if(txte[k]=="o"){
+        txte[k]="ober"
+}
+        
+        if(txte[k]=="u"){
+        txte[k]="ufat"
+ 
+        
+       
+    }
+
+
+
+    }
+  
+
+    console.log(input.value);
+    console.log(txte.join(""));
+    document.getElementById("encr").value = txte.join("");
+  
+
+}
+
+
+function desencrypt(){
+    var texto = document.getElementById("encr").value;
+     document.querySelector("input").value = "";
+
+    var textoCifrado = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u"); 
+    document.querySelector(".text").value = textoCifrado; 
+  
+  }
+
+
+  function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("encr");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  document.querySelector("input").value = "";
+  
+
+}
+
+    var button = document.querySelector("button");
+	button.onclick = encript;
+    var button2 = document.querySelector("b1");
+	b1.onclick = desencrypt;
+   
+</script>
+
+
+
+
+

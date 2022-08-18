@@ -1,0 +1,17 @@
+
+
+
+
+
+button {
+    width: 12%;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color:white;
+    background: orange;
+    border:none;
+    border-radius: 5px;
+    transition: 1s all;
+    cursor:pointer;
+}
