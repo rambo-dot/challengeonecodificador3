@@ -1,120 +1,69 @@
 <!DOCTYPE html>
-<html lang="e5">
+
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Encriptador de texto Jasr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Funcione en dispositivos moviles (Celulares)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> <!--bootstrap-->
+    <link rel="stylesheet" href="style.css"> <!--Estilos personalizados relacion con el archivo .css-->
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet"> <!--Tipo de letra-->
 </head>
 
-
 <body>
-    <main>
-        <input placeholder="Ingrese la palabra a cifrar"/ class="texto">
-        <input type="text" id="encr"  class="text">
+    <header class="encabezado"></header>
+    <main>     
+        <div class="container">
+            <div class="row ">
 
-        <p></p>
-        <button>Encriptar</button>
-        <button onclick="desencrypt" id="b1">Desencriptar</button>
-        
-        <button onclick="myFunction()">Copy text</button>
-        <p></p>
-        
-        
+                <section class="col-sm-12 col-md-1">
+                    <div class="logo">
+                        <img src="img/Vector.png" alt="logo-alura">
+                    </div>
+                </section>
 
+                <section class="col-sm-12 col-md-7">
+                    <form>                        
+                        <div class="entrada">
+                            <textarea cols="70" rows="10" placeholder="Ingresa el texto a encriptar o pegue el texto ya copiado previamente" id="input" class="scroll"></textarea>
+                        </div>                    
+
+                        <div>
+                            <p> * Solo letras  minúsculas y sin acentos</p>
+                        </div>
+
+                        <div class="entrada-botones">                            
+                            
+                            <button type="button" class="boton botonE" onclick="encript()">Encriptar</button>
+                            <button type="button" class="boton botonD" onclick="desencrypt()">Desencriptar</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="resultado col-sm-12 col-md-4">
+                    
+
+                    
+                        <div class="muestra-result scroll">
+                            <p id="resultado"></p>
+                        </div>
+                        <button type="button" class="boton botonR" onclick="copiar()">Copiar</button>
+                    </div>
+                </section>
+
+            </div>
+        </div>    
     </main>
-</body>
-</html>
-
-
-
-
-<script>
-var input = document.querySelector("input");
-
-	input.focus();
+    <footer class="pie-pagina">
+        <p>&#9401 Desarrollado por Rodrigo Barraza Montellano - Grupo 3 Alura</p>
+        
+        
+    </footer>
     
+</body>
 
- 
+<!--Relacionando el archivo .js-->
+<script type="text/javascript" src="script.js"></script>
 
-
-function encript(){
-  
-    var txt=input.value
-var txte=txt.split('');
-
-    for(k=0;k < txt.length;k++){
-        console.log(k.value)
-
-       if(txte[k]=="a"){
-        txte[k]="ai"
-}
-        if(txte[k]=="e"){
-        txte[k]="enter"
- }
-        if(txte[k]=="i"){
-        txte[k]="imes"
-}
-        if(txte[k]=="o"){
-        txte[k]="ober"
-}
-        
-        if(txte[k]=="u"){
-        txte[k]="ufat"
- 
-        
-       
-    }
-
-
-
-    }
-  
-
-    console.log(input.value);
-    console.log(txte.join(""));
-    document.getElementById("encr").value = txte.join("");
-  
-
-}
-
-
-function desencrypt(){
-    var texto = document.getElementById("encr").value;
-     document.querySelector("input").value = "";
-
-    var textoCifrado = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u"); 
-    document.querySelector(".text").value = textoCifrado; 
-  
-  }
-
-
-  function myFunction() {
-  /* Get the text field */
-  var copyText = document.getElementById("encr");
-
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
-
-  document.querySelector("input").value = "";
-  
-
-}
-
-    var button = document.querySelector("button");
-	button.onclick = encript;
-    var button2 = document.querySelector("b1");
-	b1.onclick = desencrypt;
-   
-</script>
-
-
-
-
-
+</html>
